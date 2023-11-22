@@ -1,3 +1,4 @@
+import Calculator from "./Components/Calculator";
 import Nav from "./Components/Nav";
 import { ChakraProvider } from "@chakra-ui/react";
 
@@ -6,6 +7,7 @@ function App() {
     <>
       <ChakraProvider>
         <Nav />
+        <Calculator />
       </ChakraProvider>
     </>
   );
