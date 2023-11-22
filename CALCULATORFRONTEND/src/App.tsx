@@ -1,7 +1,12 @@
+import Nav from "./Components/Nav";
+import { ChakraProvider } from "@chakra-ui/react";
+
 function App() {
   return (
     <>
-      <div>Hello</div>
+      <ChakraProvider>
+        <Nav />
+      </ChakraProvider>
     </>
   );
 }
