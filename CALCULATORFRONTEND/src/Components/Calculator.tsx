@@ -11,7 +11,7 @@ import { ChangeEvent, useState } from "react";
 
 const Calculator = () => {
   const [formFields, setFormFields] = useState([
-    { assignment: "", pointsEarned: "", totalPoints: "", category: "" },
+    { pointsEarned: "", totalPoints: "", category: "" },
   ]);
 
   const handleFormChange = (
@@ -25,12 +25,10 @@ const Calculator = () => {
 
   const submit = (e: { preventDefault: () => void }) => {
     e.preventDefault();
-    console.log(formFields);
   };
 
   const addFields = () => {
     let object = {
-      assignment: "",
       pointsEarned: "",
       totalPoints: "",
       category: "",
@@ -40,6 +38,94 @@ const Calculator = () => {
 
   const refresh = () => {
     window.location.reload();
+  };
+
+  const calculation = () => {
+    let aolEarned = ["0"];
+    let aolTotals = ["0"];
+    let aflEarned = ["0"];
+    let aflTotals = ["0"];
+    for (let i = 0; i < formFields.length; i++) {
+      if (formFields[i].category == ".80") {
+        aolEarned.push(formFields[i].pointsEarned);
+        aolTotals.push(formFields[i].totalPoints);
+      } else {
+        aflEarned.push(formFields[i].pointsEarned);
+        aflTotals.push(formFields[i].totalPoints);
+      }
+    }
+
+    // convert string[] -> number[]
+    let aolEarnedNum = aolEarned.map((i) => Number(i));
+    let aolTotalsNum = aolTotals.map((i) => Number(i));
+    let aflEarnedNum = aflEarned.map((i) => Number(i));
+    let aflTotalsNum = aflTotals.map((i) => Number(i));
+
+    // send to backend right here
+    console.log(aolEarnedNum);
+    console.log(aolTotalsNum);
+    console.log(aflEarnedNum);
+    console.log(aflTotalsNum);
+
+    // backend calculation starts here
+    let aolEarnedSum = aolEarnedNum.reduce(
+      (aolEarnedSum, p) => aolEarnedSum + p
+    );
+    console.log(aolEarnedSum); // 132.8
+    let aolTotalsSum = aolTotalsNum.reduce(
+      (aolTotalsSum, p) => aolTotalsSum + p
+    );
+    console.log(aolTotalsSum); // 136
+    let aflEarnedSum = aflEarnedNum.reduce(
+      (aflEarnedSum, p) => aflEarnedSum + p
+    );
+    console.log(aflEarnedSum); // 52.75
+    let aflTotalsSum = aflTotalsNum.reduce(
+      (aflTotalsSum, p) => aflTotalsSum + p
+    );
+    console.log(aflTotalsSum); // 64
+
+    let aolCalculated = 0.8 * (aolEarnedSum / aolTotalsSum);
+    console.log(aolCalculated); // 0.7811...
+    let aflCalculated = 0.2 * (aflEarnedSum / aflTotalsSum);
+    console.log(aflCalculated); // 0.1648...
+
+    let finalGrade = 100 * (aolCalculated + aflCalculated);
+    console.log("Your final grade is: " + finalGrade);
+    if ((finalGrade = NaN)) {
+      return "";
+    }
+    return finalGrade;
+  };
+
+  const letter = (number: any) => {
+    if (number >= 97) {
+      return "A+";
+    } else if (number >= 93) {
+      return "A";
+    } else if (number >= 90) {
+      return "A-";
+    } else if (number >= 87) {
+      return "B+";
+    } else if (number >= 83) {
+      return "B";
+    } else if (number >= 80) {
+      return "B-";
+    } else if (number >= 77) {
+      return "C+";
+    } else if (number >= 73) {
+      return "C";
+    } else if (number >= 70) {
+      return "C-";
+    } else if (number >= 67) {
+      return "D+";
+    } else if (number >= 65) {
+      return "D";
+    } else if (number >= 60) {
+      return "D-";
+    } else {
+      return "F";
+    }
   };
 
   return (
@@ -63,20 +149,11 @@ const Calculator = () => {
         {formFields.map((form, index) => {
           return (
             <HStack key={index} pb="5px" spacing="20px">
-              <Input
-                bg="#E8E8E8"
-                w="155px"
-                name="assignment"
-                placeholder="Assignment"
-                onChange={(event) => handleFormChange(event, index)}
-                value={form.assignment}
-                borderRadius="4"
-              />
+              <Input bg="#E8E8E8" w="155px" borderRadius="4" />
               <Input
                 bg="#E8E8E8"
                 w="80px"
                 name="pointsEarned"
-                placeholder="Points earned"
                 onChange={(event) => handleFormChange(event, index)}
                 value={form.pointsEarned}
                 borderRadius="4"
@@ -85,7 +162,6 @@ const Calculator = () => {
                 bg="#E8E8E8"
                 w="80px"
                 name="totalPoints"
-                placeholder="Total points"
                 onChange={(event) => handleFormChange(event, index)}
                 value={form.totalPoints}
                 borderRadius="4"
@@ -134,10 +210,10 @@ const Calculator = () => {
           </Text>
           <HStack spacing="20px">
             <Box bg="white" color="black" borderRadius="4" w="200px" h="40px">
-              hello
+              <Text>{calculation()}</Text>
             </Box>
             <Box bg="white" color="black" borderRadius="4" w="100px" h="40px">
-              meow
+              <Text>{letter(calculation())}</Text>
             </Box>
           </HStack>
         </Box>
