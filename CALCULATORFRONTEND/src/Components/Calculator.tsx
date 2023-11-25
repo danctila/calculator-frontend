@@ -32,17 +32,25 @@ const Calculator = () => {
 
   return (
     <>
-      <Box bg="#A29165" w="490px" h="auto" mt="200px" mx="auto" p="10px">
-        <HStack justifyContent="space-between">
-          <Text fontSize="15">Assignment (opt.)</Text>
-          <Text fontSize="15">Points earned</Text>
-          <Text fontSize="15">Total points</Text>
-          <Text fontSize="15">Category</Text>
+      <Box bg="#A29165" w="470px" h="auto" mt="200px" mx="auto" p="10px">
+        <HStack>
+          <Text fontSize="15" ml="3px">
+            Assignment (opt.)
+          </Text>
+          <Text fontSize="15" ml="43px">
+            Points earned
+          </Text>
+          <Text fontSize="15" ml="5px">
+            Total points
+          </Text>
+          <Text fontSize="15" ml="13px">
+            Category
+          </Text>
         </HStack>
 
         {formFields.map((form, index) => {
           return (
-            <HStack key={index} pb="5px">
+            <HStack key={index} pb="5px" spacing="20px">
               <Input
                 bg="#E8E8E8"
                 w="155px"
@@ -53,7 +61,7 @@ const Calculator = () => {
               />
               <Input
                 bg="#E8E8E8"
-                w="200px"
+                w="80px"
                 name="pointsEarned"
                 placeholder="Points earned"
                 onChange={(event) => handleFormChange(event, index)}
@@ -61,7 +69,7 @@ const Calculator = () => {
               />
               <Input
                 bg="#E8E8E8"
-                w="200px"
+                w="80px"
                 name="totalPoints"
                 placeholder="Total points"
                 onChange={(event) => handleFormChange(event, index)}
@@ -69,20 +77,21 @@ const Calculator = () => {
               />
               <Select
                 bg="#E8E8E8"
-                w="150px"
+                w="80px"
                 name="category"
                 onChange={(event) => handleFormChange(event, index)}
               >
-                <option value="1.20">AFL 20%</option>
-                <option value="1.80">AOL 80%</option>
+                <option value=""></option>
+                <option value=".20">AFL 20%</option>
+                <option value=".80">AOL 80%</option>
               </Select>
             </HStack>
           );
         })}
 
         <Button onClick={addFields}>Add more..</Button>
-        <Button onClick={submit}>Submit..</Button>
       </Box>
+      <Button onClick={submit}>Submit..</Button>
     </>
   );
 };
