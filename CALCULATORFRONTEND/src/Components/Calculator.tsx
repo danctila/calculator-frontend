@@ -1,4 +1,12 @@
-import { Box, Button, HStack, Input, Select, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Center,
+  HStack,
+  Input,
+  Select,
+  Text,
+} from "@chakra-ui/react";
 import { ChangeEvent, useState } from "react";
 
 const Calculator = () => {
@@ -30,6 +38,10 @@ const Calculator = () => {
     setFormFields([...formFields, object]);
   };
 
+  const refresh = () => {
+    window.location.reload();
+  };
+
   return (
     <>
       <Box bg="#A29165" w="470px" h="auto" mt="200px" mx="auto" p="10px">
@@ -58,6 +70,7 @@ const Calculator = () => {
                 placeholder="Assignment"
                 onChange={(event) => handleFormChange(event, index)}
                 value={form.assignment}
+                borderRadius="4"
               />
               <Input
                 bg="#E8E8E8"
@@ -66,6 +79,7 @@ const Calculator = () => {
                 placeholder="Points earned"
                 onChange={(event) => handleFormChange(event, index)}
                 value={form.pointsEarned}
+                borderRadius="4"
               />
               <Input
                 bg="#E8E8E8"
@@ -74,12 +88,14 @@ const Calculator = () => {
                 placeholder="Total points"
                 onChange={(event) => handleFormChange(event, index)}
                 value={form.totalPoints}
+                borderRadius="4"
               />
               <Select
                 bg="#E8E8E8"
                 w="80px"
                 name="category"
                 onChange={(event) => handleFormChange(event, index)}
+                borderRadius="4"
               >
                 <option value=""></option>
                 <option value=".20">AFL 20%</option>
@@ -88,10 +104,44 @@ const Calculator = () => {
             </HStack>
           );
         })}
-
-        <Button onClick={addFields}>Add more..</Button>
+        <Center>
+          <Button onClick={addFields} w="250px" bg="#E8E8E8">
+            Add grade +
+          </Button>
+        </Center>
+        <HStack paddingTop="30px" mx="45px" justifyContent="space-between">
+          <Button
+            onClick={submit}
+            bg="#214D7D"
+            color="white"
+            _hover={{ color: "white" }}
+            _active={{ background: "#214D7D", color: "#A29165" }}
+          >
+            = Calculate
+          </Button>
+          <Button
+            onClick={refresh}
+            bg="#515C67"
+            color="white"
+            _hover={{ bg: "red" }}
+          >
+            X Reset
+          </Button>
+        </HStack>
+        <Box bg="#A29165" pt="8px" mx="45px">
+          <Text fontSize="20" fontWeight="semi bold" py="5px">
+            Average grade:
+          </Text>
+          <HStack spacing="20px">
+            <Box bg="white" color="black" borderRadius="4" w="200px" h="40px">
+              hello
+            </Box>
+            <Box bg="white" color="black" borderRadius="4" w="100px" h="40px">
+              meow
+            </Box>
+          </HStack>
+        </Box>
       </Box>
-      <Button onClick={submit}>Submit..</Button>
     </>
   );
 };
