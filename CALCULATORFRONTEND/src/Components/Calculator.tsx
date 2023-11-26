@@ -63,9 +63,6 @@ const Calculator = () => {
     let aflEarnedNum = aflEarned.map((i) => Number(i));
     let aflTotalsNum = aflTotals.map((i) => Number(i));
 
-    //test
-    console.log(formFields);
-
     // send to backend right here
     console.log(aolEarnedNum);
     console.log(aolTotalsNum);
@@ -76,23 +73,18 @@ const Calculator = () => {
     let aolEarnedSum = aolEarnedNum.reduce(
       (aolEarnedSum, p) => aolEarnedSum + p
     );
-    console.log(aolEarnedSum); // 132.8
+
     let aolTotalsSum = aolTotalsNum.reduce(
       (aolTotalsSum, p) => aolTotalsSum + p
     );
-    console.log(aolTotalsSum); // 136
+
     let aflEarnedSum = aflEarnedNum.reduce(
       (aflEarnedSum, p) => aflEarnedSum + p
     );
-    console.log(aflEarnedSum); // 52.75
+
     let aflTotalsSum = aflTotalsNum.reduce(
       (aflTotalsSum, p) => aflTotalsSum + p
     );
-    console.log(aflTotalsSum); // 64
-
-    //console.log(aolCalculated); // 0.7811...
-
-    //console.log(aflCalculated); // 0.1648...
 
     let finalGrade = 0;
     let aolCalculated = 0;
@@ -101,64 +93,44 @@ const Calculator = () => {
     aflCalculated = 0.2 * (aflEarnedSum / aflTotalsSum);
 
     if (aolCalculated > 0 && aflCalculated > 0) {
-      console.log("1st conditional");
-
       finalGrade = 100 * (aolCalculated + aflCalculated);
     } else if (aolCalculated > 0) {
-      console.log("2st conditional");
       aolCalculated = aolEarnedSum / aolTotalsSum;
       finalGrade = 100 * aolCalculated;
     } else if (aflCalculated > 0) {
-      console.log("3st conditional");
       aflCalculated = aflEarnedSum / aflTotalsSum;
       finalGrade = 100 * aflCalculated;
     } else {
-      console.log("4st conditional");
       finalGrade = 0;
     }
-    console.log("Your final grade is: " + finalGrade);
 
-    return finalGrade;
+    return finalGrade.toFixed(4) as unknown as number;
   };
 
   const letter = (number: any) => {
-    if (number >= 97) {
-      return "A+";
-    } else if (number >= 93) {
-      return "A";
-    } else if (number >= 90) {
-      return "A-";
-    } else if (number >= 87) {
-      return "B+";
-    } else if (number >= 83) {
-      return "B";
-    } else if (number >= 80) {
-      return "B-";
-    } else if (number >= 77) {
-      return "C+";
-    } else if (number >= 73) {
-      return "C";
-    } else if (number >= 70) {
-      return "C-";
-    } else if (number >= 67) {
-      return "D+";
-    } else if (number >= 65) {
-      return "D";
-    } else if (number >= 60) {
-      return "D-";
-    } else {
-      return "F";
-    }
+    if (number >= 97) return "A+";
+    else if (number >= 93) return "A";
+    else if (number >= 90) return "A-";
+    else if (number >= 87) return "B+";
+    else if (number >= 83) return "B";
+    else if (number >= 80) return "B-";
+    else if (number >= 77) return "C+";
+    else if (number >= 73) return "C";
+    else if (number >= 70) return "C-";
+    else if (number >= 67) return "D+";
+    else if (number >= 65) return "D";
+    else if (number >= 60) return "D-";
+    else return "F";
   };
 
   return (
     <>
-      <Box bg="#A29165" w="470px" h="auto" mt="200px" mx="auto" p="10px">
+      <Box bg="#A29165" w="470px" h="auto" mx="auto" mt="200px" p="10px">
         <HStack>
           <Text fontSize="15" ml="3px">
             Assignment (opt.)
           </Text>
-          <Text fontSize="15" ml="43px">
+          <Text fontSize="15" ml="25px">
             Points earned
           </Text>
           <Text fontSize="15" ml="5px">
@@ -233,10 +205,10 @@ const Calculator = () => {
           </Text>
           <HStack spacing="20px">
             <Box bg="white" color="black" borderRadius="4" w="200px" h="40px">
-              <Text>{avgGrade}</Text>
+              <Text fontSize="24px">{avgGrade}</Text>
             </Box>
             <Box bg="white" color="black" borderRadius="4" w="100px" h="40px">
-              <Text>{letter(avgGrade)}</Text>
+              <Text fontSize="24px">{letter(avgGrade)}</Text>
             </Box>
           </HStack>
         </Box>

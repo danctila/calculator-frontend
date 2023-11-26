@@ -1,14 +1,19 @@
 import Calculator from "./Components/Calculator";
 import Nav from "./Components/Nav";
-import { ChakraProvider } from "@chakra-ui/react";
+import { Grid, GridItem } from "@chakra-ui/react";
 
 function App() {
   return (
     <>
-      <ChakraProvider>
-        <Nav />
-        <Calculator />
-      </ChakraProvider>
+      <Grid templateAreas={`"nav" "main"`}>
+        <GridItem area="nav">
+          <Nav />
+        </GridItem>
+
+        <GridItem area="main">
+          <Calculator />
+        </GridItem>
+      </Grid>
     </>
   );
 }
