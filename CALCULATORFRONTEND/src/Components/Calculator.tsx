@@ -13,6 +13,7 @@ const Calculator = () => {
   const [formFields, setFormFields] = useState([
     { pointsEarned: "", totalPoints: "", category: "" },
   ]);
+  const [avgGrade, setAvgGrade] = useState(0);
 
   const handleFormChange = (
     event: ChangeEvent<HTMLInputElement | HTMLSelectElement>,
@@ -25,6 +26,7 @@ const Calculator = () => {
 
   const submit = (e: { preventDefault: () => void }) => {
     e.preventDefault();
+    setAvgGrade(calculation());
   };
 
   const addFields = () => {
@@ -61,6 +63,9 @@ const Calculator = () => {
     let aflEarnedNum = aflEarned.map((i) => Number(i));
     let aflTotalsNum = aflTotals.map((i) => Number(i));
 
+    //test
+    console.log(formFields);
+
     // send to backend right here
     console.log(aolEarnedNum);
     console.log(aolTotalsNum);
@@ -85,16 +90,34 @@ const Calculator = () => {
     );
     console.log(aflTotalsSum); // 64
 
-    let aolCalculated = 0.8 * (aolEarnedSum / aolTotalsSum);
-    console.log(aolCalculated); // 0.7811...
-    let aflCalculated = 0.2 * (aflEarnedSum / aflTotalsSum);
-    console.log(aflCalculated); // 0.1648...
+    //console.log(aolCalculated); // 0.7811...
 
-    let finalGrade = 100 * (aolCalculated + aflCalculated);
-    console.log("Your final grade is: " + finalGrade);
-    if ((finalGrade = NaN)) {
-      return "";
+    //console.log(aflCalculated); // 0.1648...
+
+    let finalGrade = 0;
+    let aolCalculated = 0;
+    let aflCalculated = 0;
+    aolCalculated = 0.8 * (aolEarnedSum / aolTotalsSum);
+    aflCalculated = 0.2 * (aflEarnedSum / aflTotalsSum);
+
+    if (aolCalculated > 0 && aflCalculated > 0) {
+      console.log("1st conditional");
+
+      finalGrade = 100 * (aolCalculated + aflCalculated);
+    } else if (aolCalculated > 0) {
+      console.log("2st conditional");
+      aolCalculated = aolEarnedSum / aolTotalsSum;
+      finalGrade = 100 * aolCalculated;
+    } else if (aflCalculated > 0) {
+      console.log("3st conditional");
+      aflCalculated = aflEarnedSum / aflTotalsSum;
+      finalGrade = 100 * aflCalculated;
+    } else {
+      console.log("4st conditional");
+      finalGrade = 0;
     }
+    console.log("Your final grade is: " + finalGrade);
+
     return finalGrade;
   };
 
@@ -210,10 +233,10 @@ const Calculator = () => {
           </Text>
           <HStack spacing="20px">
             <Box bg="white" color="black" borderRadius="4" w="200px" h="40px">
-              <Text>{calculation()}</Text>
+              <Text>{avgGrade}</Text>
             </Box>
             <Box bg="white" color="black" borderRadius="4" w="100px" h="40px">
-              <Text>{letter(calculation())}</Text>
+              <Text>{letter(avgGrade)}</Text>
             </Box>
           </HStack>
         </Box>
