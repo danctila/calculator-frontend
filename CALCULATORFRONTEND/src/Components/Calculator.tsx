@@ -125,7 +125,7 @@ const Calculator = () => {
 
   return (
     <>
-      <Box bg="#A29165" w="470px" h="auto" mx="auto" mt="200px" p="10px">
+      <Box bg="#A29165" w="470px" h="auto" mx="auto" mt="30px" p="10px">
         <HStack>
           <Text fontSize="15" ml="3px">
             Assignment (opt.)
