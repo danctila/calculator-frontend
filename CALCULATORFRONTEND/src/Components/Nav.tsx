@@ -20,6 +20,7 @@ const Nav = () => {
           <HStack mb="-45px">
             <Center
               fontWeight="bold"
+              fontSize="16px"
               bg="#E8E8E8"
               color="#214D7D"
               h="35px"
@@ -29,6 +30,7 @@ const Nav = () => {
             </Center>
             <Center
               fontWeight="bold"
+              fontSize="16px"
               bg="#989898"
               color="#214D7D"
               h="35px"

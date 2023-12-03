@@ -1,4 +1,5 @@
 import Calculator from "./Components/Calculator";
+import Footer from "./Components/Footer";
 import Nav from "./Components/Nav";
 import { Grid, GridItem } from "@chakra-ui/react";
 
@@ -12,6 +13,7 @@ function App() {
 
         <GridItem area="main" bg="#E8E8E8">
           <Calculator />
+          <Footer />
         </GridItem>
       </Grid>
     </>
