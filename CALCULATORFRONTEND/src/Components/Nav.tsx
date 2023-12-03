@@ -1,5 +1,5 @@
 import { Center, Flex, HStack, Text } from "@chakra-ui/react";
-
+import { Link as ReactRouterLink } from "react-router-dom";
 const Nav = () => {
   return (
     <>
@@ -18,6 +18,8 @@ const Nav = () => {
               color="#214D7D"
               h="35px"
               px="10px"
+              as={ReactRouterLink}
+              to="/"
             >
               <Text>HOME</Text>
             </Center>
@@ -28,6 +30,8 @@ const Nav = () => {
               color="#214D7D"
               h="35px"
               px="10px"
+              as={ReactRouterLink}
+              to="/about"
             >
               <Text>ABOUT</Text>
             </Center>

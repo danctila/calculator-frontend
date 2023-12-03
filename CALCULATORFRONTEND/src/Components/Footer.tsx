@@ -1,4 +1,5 @@
 import { Flex, HStack, Link } from "@chakra-ui/react";
+import { Link as ReactRouterLink } from "react-router-dom";
 
 const Footer = () => {
   const scrollTop = () => {
@@ -8,10 +9,20 @@ const Footer = () => {
     <>
       <Flex w="100%" h="80px" bg="#989898" justifyContent="center" mt="250px">
         <HStack w="350px" justifyContent="space-between">
-          <Link fontWeight="semibold" fontSize="16px" as="u">
+          <Link
+            fontWeight="semibold"
+            fontSize="16px"
+            as={ReactRouterLink}
+            to="/"
+          >
             HOME
           </Link>
-          <Link fontWeight="semibold" fontSize="16px" as="u">
+          <Link
+            fontWeight="semibold"
+            fontSize="16px"
+            as={ReactRouterLink}
+            to="/about"
+          >
             ABOUT
           </Link>
           <Link

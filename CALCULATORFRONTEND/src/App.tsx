@@ -1,25 +1,20 @@
-import Calculator from "./Components/Calculator";
-import Footer from "./Components/Footer";
-import Gradehelp from "./Components/Gradehelp";
-import Gradeintro from "./Components/Gradeintro";
 import Nav from "./Components/Nav";
-import { Grid, GridItem } from "@chakra-ui/react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./Components/Home";
+import About from "./Components/About";
+import Footer from "./Components/Footer";
 
 function App() {
   return (
     <>
-      <Grid templateAreas={`"nav" "main"`}>
-        <GridItem area="nav">
-          <Nav />
-        </GridItem>
-
-        <GridItem area="main" bg="#E8E8E8">
-          <Gradeintro />
-          <Calculator />
-          <Gradehelp />
-          <Footer />
-        </GridItem>
-      </Grid>
+      <BrowserRouter>
+        <Nav />
+        <Routes>
+          <Route path="/" element={<Home />}></Route>
+          <Route path="/about" element={<About />}></Route>
+        </Routes>
+        <Footer />
+      </BrowserRouter>
     </>
   );
 }
