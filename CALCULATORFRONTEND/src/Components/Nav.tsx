@@ -3,16 +3,9 @@ import { Center, Flex, HStack, Text } from "@chakra-ui/react";
 const Nav = () => {
   return (
     <>
-      <Flex
-        w="100%"
-        h="80px"
-        bg="#A29165"
-        pos="fixed"
-        zIndex={200}
-        justifyContent="center"
-      >
+      <Flex w="100%" h="80px" bg="#A29165" justifyContent="center">
         <HStack w="470px" justifyContent="space-between">
-          <Center>
+          <Center pl="15px">
             <Text fontSize="26" fontWeight="semibold" color="#214D7D">
               NHS Grade Calculator
             </Text>
