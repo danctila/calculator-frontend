@@ -1,4 +1,4 @@
-import { HStack, Text, VStack } from "@chakra-ui/react";
+import { HStack, Link, Text, VStack } from "@chakra-ui/react";
 import Formeg from "./Formeg";
 
 const Gradehelp = () => {
@@ -30,8 +30,15 @@ const Gradehelp = () => {
             Feedback
           </Text>
           <Text fontSize="16px" fontWeight="normal" color="black">
-            If issues persist or you have any questions please email
-            danctilla@gmail.com
+            If issues persist or you have any questions please email{" "}
+            <Link
+              color="blue"
+              onClick={() =>
+                (window.location.href = "mailto:danctila@gmail.com")
+              }
+            >
+              Danctilla@gmail.com
+            </Link>
           </Text>
         </VStack>
       </HStack>

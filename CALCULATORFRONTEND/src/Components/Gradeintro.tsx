@@ -3,7 +3,7 @@ import { HStack, Text, VStack } from "@chakra-ui/react";
 const Gradeintro = () => {
   return (
     <>
-      <HStack justify="center" mt="90px">
+      <HStack justify="center" mt="40px">
         <VStack w="470px" spacing="8px" align="left">
           <Text fontSize="20px" fontWeight="bold" color="black">
             Grade Calculator
