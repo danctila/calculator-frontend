@@ -4,7 +4,7 @@ import Formeg from "./Formeg";
 const Gradehelp = () => {
   return (
     <>
-      <HStack justify="center" mt="40px" pb="250px">
+      <HStack justify="center" minW="470px" mt="40px" pb="250px">
         <VStack w="470px" align="left" spacing="1px">
           <Text fontSize="20px" fontWeight="bold" color="black" pb="10px">
             Help

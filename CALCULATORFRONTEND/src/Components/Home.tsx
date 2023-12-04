@@ -7,7 +7,7 @@ import Gradeintro from "./Gradeintro";
 const Home = () => {
   return (
     <>
-      <Box bg="#E8E8E8" w="100%">
+      <Box bg="#E8E8E8" minW="470px">
         <Gradeintro />
         <Calculator />
         <Gradehelp />

@@ -4,7 +4,7 @@ import { useLocation } from "react-router-dom";
 const Nav = () => {
   return (
     <>
-      <Flex w="100%" h="80px" bg="#A29165" justifyContent="center">
+      <Flex h="80px" minW="470px" bg="#A29165" justifyContent="center">
         <HStack w="470px" justifyContent="space-between">
           <Center pl="15px">
             <Text fontSize="26" fontWeight="semibold" color="#214D7D">

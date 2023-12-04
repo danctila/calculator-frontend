@@ -7,7 +7,7 @@ const Footer = () => {
   };
   return (
     <>
-      <Flex w="100%" h="80px" bg="#989898" justifyContent="center">
+      <Flex minW="470px" h="80px" bg="#989898" justifyContent="center">
         <HStack w="350px" justifyContent="space-between">
           <Link
             fontWeight="semibold"
