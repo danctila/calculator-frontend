@@ -24,10 +24,29 @@ const Formeg = () => {
             w="155px"
             borderRadius="4"
             value="Homework 1"
+            readOnly
           ></Input>
-          <Input bg="#E8E8E8" w="80px" borderRadius="4" value="8"></Input>
-          <Input bg="#E8E8E8" w="80px" borderRadius="4" value="10"></Input>
-          <Input bg="#E8E8E8" w="80px" borderRadius="4" value="AFL"></Input>
+          <Input
+            bg="#E8E8E8"
+            w="80px"
+            borderRadius="4"
+            value="8"
+            readOnly
+          ></Input>
+          <Input
+            bg="#E8E8E8"
+            w="80px"
+            borderRadius="4"
+            value="10"
+            readOnly
+          ></Input>
+          <Input
+            bg="#E8E8E8"
+            w="80px"
+            borderRadius="4"
+            value="AFL"
+            readOnly
+          ></Input>
         </HStack>
       </Box>
     </>

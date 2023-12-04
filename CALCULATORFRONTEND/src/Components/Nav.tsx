@@ -1,5 +1,6 @@
 import { Center, Flex, HStack, Text } from "@chakra-ui/react";
 import { Link as ReactRouterLink } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 const Nav = () => {
   return (
     <>
@@ -14,7 +15,12 @@ const Nav = () => {
             <Center
               fontWeight="bold"
               fontSize="16px"
-              bg="#E8E8E8"
+              bg={useLocation().pathname == "/" ? "#E8E8E8" : "#989898"}
+              _hover={
+                useLocation().pathname == "/about"
+                  ? { background: "#E8E8E8" }
+                  : {}
+              }
               color="#214D7D"
               h="35px"
               px="10px"
@@ -26,7 +32,10 @@ const Nav = () => {
             <Center
               fontWeight="bold"
               fontSize="16px"
-              bg="#989898"
+              bg={useLocation().pathname == "/" ? "#989898" : "#E8E8E8"}
+              _hover={
+                useLocation().pathname == "/" ? { background: "#E8E8E8" } : {}
+              }
               color="#214D7D"
               h="35px"
               px="10px"
