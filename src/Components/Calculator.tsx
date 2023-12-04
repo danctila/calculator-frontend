@@ -118,8 +118,8 @@ const Calculator = () => {
     else if (number >= 73) return "C";
     else if (number >= 70) return "C-";
     else if (number >= 67) return "D+";
-    else if (number >= 64) return "D";
-    else if (number >= 42) return "D-";
+    else if (number >= 63) return "D";
+    else if (number >= 60) return "D-";
     else return "F";
   };
 
