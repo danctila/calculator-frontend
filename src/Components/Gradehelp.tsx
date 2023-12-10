@@ -1,4 +1,11 @@
-import { HStack, Link, Text, VStack } from "@chakra-ui/react";
+import {
+  HStack,
+  Link,
+  ListItem,
+  Text,
+  UnorderedList,
+  VStack,
+} from "@chakra-ui/react";
 import Formeg from "./Formeg";
 
 const Gradehelp = () => {
@@ -25,13 +32,19 @@ const Gradehelp = () => {
           <Text fontSize="16px" fontWeight="semibold" color="black" px="15px">
             Note
           </Text>
-          <Text fontSize="16px" fontWeight="normal" color="black" px="15px">
-            The assignment field is optional and will not effect calculation.
-          </Text>
-          <Text fontSize="16px" fontWeight="normal" color="black" px="15px">
-            The default value for the category field is AFL 20% with no option
-            selected.
-          </Text>
+          <UnorderedList pl="15px">
+            <ListItem fontSize="16px" fontWeight="normal" color="black">
+              The assignment field is optional and will not effect calculation.
+            </ListItem>
+            <ListItem fontSize="16px" fontWeight="normal" color="black">
+              The default value for the category field is AFL 20% with no option
+              selected.
+            </ListItem>
+            <ListItem fontSize="16px" fontWeight="normal" color="black">
+              PowerSchool rounds the calculated average grade to the nearest
+              whole number.
+            </ListItem>
+          </UnorderedList>
           <Text
             fontSize="16px"
             fontWeight="semibold"
