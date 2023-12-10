@@ -56,7 +56,7 @@ const About = () => {
               <Link
                 color="blue"
                 onClick={() =>
-                  (window.location.href = "mailto:danctila@gmail.com")
+                  (window.location.href = "mailto:danctilla@gmail.com")
                 }
               >
                 Danctilla@gmail.com
