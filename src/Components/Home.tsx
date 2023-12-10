@@ -7,9 +7,7 @@ import { InfoOutlineIcon } from "@chakra-ui/icons";
 import AdvCalculator from "./AdvCalculator";
 const Home = () => {
   const [advancedMode, setAdvancedMode] = useState(false);
-  const toggleAdvanced = () => {
-    setAdvancedMode(!advancedMode);
-  };
+  const [advancedTip, setAdvancedTip] = useState(false);
   return (
     <>
       <Box bg="#E8E8E8" minW="470px">
@@ -23,8 +21,13 @@ const Home = () => {
                 hasArrow
                 label="Increased control over input and output of the calculator"
                 placement="top-start"
+                isOpen={advancedTip}
               >
-                <InfoOutlineIcon />
+                <InfoOutlineIcon
+                  onMouseEnter={() => setAdvancedTip(true)}
+                  onMouseLeave={() => setAdvancedTip(false)}
+                  onClick={() => setAdvancedTip(!advancedTip)}
+                />
               </Tooltip>
               <Text fontSize="16px" fontWeight="semibold" color="black">
                 Advanced mode
@@ -32,7 +35,7 @@ const Home = () => {
               <Switch
                 size="md"
                 colorScheme="green"
-                onChange={toggleAdvanced}
+                onChange={() => setAdvancedMode(!advancedMode)}
               ></Switch>
             </HStack>
           </VStack>
