@@ -168,7 +168,7 @@ const Calculator = () => {
                 onChange={(event) => handleFormChange(event, index)}
                 borderRadius="4"
               >
-                <option value=""></option>
+                <option value="">--</option>
                 <option value=".20">AFL 20%</option>
                 <option value=".80">AOL 80%</option>
               </Select>
