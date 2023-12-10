@@ -16,6 +16,8 @@ const Calculator = () => {
   ]);
   const [avgGrade, setAvgGrade] = useState(0);
   const [averageTip, setAverageTip] = useState(false);
+  const [weightTip, setWeightTip] = useState(false);
+
   const handleFormChange = (
     event: ChangeEvent<HTMLInputElement | HTMLSelectElement>,
     index: number
@@ -85,9 +87,25 @@ const Calculator = () => {
           <Text fontSize="15" ml="5px">
             Total points
           </Text>
-          <Text fontSize="15" ml="13px">
-            Category
-          </Text>
+          <HStack>
+            <Text fontSize="15" ml="10px">
+              Weight
+            </Text>
+            <Tooltip
+              bg="#989898"
+              color="#214D7D"
+              hasArrow
+              label="Calculated grade before PowerSchool rounds to whole number"
+              placement="top-start"
+              isOpen={weightTip}
+            >
+              <InfoOutlineIcon
+                onMouseEnter={() => setWeightTip(true)}
+                onMouseLeave={() => setWeightTip(false)}
+                onClick={() => setWeightTip(!weightTip)}
+              />
+            </Tooltip>
+          </HStack>
         </HStack>
 
         {formFields.map((form, index) => {
@@ -151,8 +169,8 @@ const Calculator = () => {
               bg="#989898"
               color="#214D7D"
               hasArrow
-              label="Calculated grade before PowerSchool rounds to whole number"
-              placement="top-start"
+              label="Calculated grade before PowerSchool rounds to the nearest whole number"
+              placement="top-end"
               isOpen={averageTip}
             >
               <InfoOutlineIcon
