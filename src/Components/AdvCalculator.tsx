@@ -1,4 +1,13 @@
-import { Box, Button, Center, HStack, Input, Text } from "@chakra-ui/react";
+import { InfoOutlineIcon } from "@chakra-ui/icons";
+import {
+  Box,
+  Button,
+  Center,
+  HStack,
+  Input,
+  Text,
+  Tooltip,
+} from "@chakra-ui/react";
 import { ChangeEvent, useState } from "react";
 
 const Calculator = () => {
@@ -6,7 +15,7 @@ const Calculator = () => {
     { pointsEarned: "", totalPoints: "", category: "" },
   ]);
   const [avgGrade, setAvgGrade] = useState(0);
-
+  const [averageTip, setAverageTip] = useState(false);
   const handleFormChange = (
     event: ChangeEvent<HTMLInputElement | HTMLSelectElement>,
     index: number
@@ -137,9 +146,25 @@ const Calculator = () => {
           </Button>
         </HStack>
         <Box bg="#A29165" pt="8px" mx="45px">
-          <Text fontSize="20" fontWeight="semi bold" py="5px">
-            Average grade:
-          </Text>
+          <HStack>
+            <Tooltip
+              bg="#989898"
+              color="#214D7D"
+              hasArrow
+              label="Calculated grade before PowerSchool rounds to whole number"
+              placement="top-start"
+              isOpen={averageTip}
+            >
+              <InfoOutlineIcon
+                onMouseEnter={() => setAverageTip(true)}
+                onMouseLeave={() => setAverageTip(false)}
+                onClick={() => setAverageTip(!averageTip)}
+              />
+            </Tooltip>
+            <Text fontSize="20" fontWeight="semi bold" py="5px">
+              Average grade:
+            </Text>
+          </HStack>
           <HStack spacing="20px">
             <Box bg="#E8E8E8" color="black" borderRadius="4" w="200px" h="40px">
               <Text fontSize="24px">{avgGrade.toFixed(4)}</Text>
