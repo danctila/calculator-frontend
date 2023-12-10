@@ -1,13 +1,5 @@
 import { useState } from "react";
-import {
-  Box,
-  Button,
-  HStack,
-  Switch,
-  Text,
-  Tooltip,
-  VStack,
-} from "@chakra-ui/react";
+import { Box, HStack, Switch, Text, Tooltip, VStack } from "@chakra-ui/react";
 import Calculator from "./Calculator";
 import Gradehelp from "./Gradehelp";
 import Gradeintro from "./Gradeintro";

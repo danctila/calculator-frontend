@@ -1,12 +1,4 @@
-import {
-  Box,
-  Button,
-  Center,
-  HStack,
-  Input,
-  Select,
-  Text,
-} from "@chakra-ui/react";
+import { Box, Button, Center, HStack, Input, Text } from "@chakra-ui/react";
 import { ChangeEvent, useState } from "react";
 
 const Calculator = () => {
@@ -43,65 +35,13 @@ const Calculator = () => {
   };
 
   const calculation = () => {
-    let aolEarned = ["0"];
-    let aolTotals = ["0"];
-    let aflEarned = ["0"];
-    let aflTotals = ["0"];
-    for (let i = 0; i < formFields.length; i++) {
-      if (formFields[i].category == ".80") {
-        aolEarned.push(formFields[i].pointsEarned);
-        aolTotals.push(formFields[i].totalPoints);
-      } else {
-        aflEarned.push(formFields[i].pointsEarned);
-        aflTotals.push(formFields[i].totalPoints);
-      }
-    }
-
-    // convert string[] -> number[]
-    let aolEarnedNum = aolEarned.map((i) => Number(i));
-    let aolTotalsNum = aolTotals.map((i) => Number(i));
-    let aflEarnedNum = aflEarned.map((i) => Number(i));
-    let aflTotalsNum = aflTotals.map((i) => Number(i));
-
-    // send to backend right here
-    console.log(aolEarnedNum);
-    console.log(aolTotalsNum);
-    console.log(aflEarnedNum);
-    console.log(aflTotalsNum);
-
-    // backend calculation starts here
-    let aolEarnedSum = aolEarnedNum.reduce(
-      (aolEarnedSum, p) => aolEarnedSum + p
-    );
-
-    let aolTotalsSum = aolTotalsNum.reduce(
-      (aolTotalsSum, p) => aolTotalsSum + p
-    );
-
-    let aflEarnedSum = aflEarnedNum.reduce(
-      (aflEarnedSum, p) => aflEarnedSum + p
-    );
-
-    let aflTotalsSum = aflTotalsNum.reduce(
-      (aflTotalsSum, p) => aflTotalsSum + p
-    );
-
     let finalGrade = 0;
-    let aolCalculated = 0;
-    let aflCalculated = 0;
-    aolCalculated = 0.8 * (aolEarnedSum / aolTotalsSum);
-    aflCalculated = 0.2 * (aflEarnedSum / aflTotalsSum);
+    for (let i = 0; i < formFields.length; i++) {
+      let earned = formFields[i].pointsEarned as unknown as number;
+      let total = formFields[i].totalPoints as unknown as number;
+      let category = formFields[i].category as unknown as number;
 
-    if (aolCalculated > 0 && aflCalculated > 0) {
-      finalGrade = 100 * (aolCalculated + aflCalculated);
-    } else if (aolCalculated > 0) {
-      aolCalculated = aolEarnedSum / aolTotalsSum;
-      finalGrade = 100 * aolCalculated;
-    } else if (aflCalculated > 0) {
-      aflCalculated = aflEarnedSum / aflTotalsSum;
-      finalGrade = 100 * aflCalculated;
-    } else {
-      finalGrade = 0;
+      finalGrade += 100 * (earned / total) * category;
     }
 
     return finalGrade;
@@ -161,17 +101,14 @@ const Calculator = () => {
                 value={form.totalPoints}
                 borderRadius="4"
               />
-              <Select
+              <Input
                 bg="#E8E8E8"
                 w="80px"
                 name="category"
                 onChange={(event) => handleFormChange(event, index)}
+                value={form.category}
                 borderRadius="4"
-              >
-                <option value=""></option>
-                <option value=".20">AFL 20%</option>
-                <option value=".80">AOL 80%</option>
-              </Select>
+              />
             </HStack>
           );
         })}
