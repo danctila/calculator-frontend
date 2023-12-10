@@ -104,7 +104,7 @@ const Calculator = () => {
       finalGrade = 0;
     }
 
-    return finalGrade.toFixed(4) as unknown as number;
+    return finalGrade;
   };
 
   const letter = (number: any) => {
@@ -125,7 +125,7 @@ const Calculator = () => {
 
   return (
     <>
-      <Box bg="#A29165" w="470px" h="auto" mx="auto" mt="30px" p="10px">
+      <Box bg="#A29165" w="470px" h="auto" mx="auto" mt="10px" p="10px">
         <HStack>
           <Text fontSize="15" ml="3px">
             Assignment (opt.)
@@ -204,11 +204,24 @@ const Calculator = () => {
             Average grade:
           </Text>
           <HStack spacing="20px">
-            <Box bg="white" color="black" borderRadius="4" w="200px" h="40px">
-              <Text fontSize="24px">{avgGrade}</Text>
+            <Box bg="#E8E8E8" color="black" borderRadius="4" w="200px" h="40px">
+              <Text fontSize="24px">{avgGrade.toFixed(4)}</Text>
             </Box>
-            <Box bg="white" color="black" borderRadius="4" w="100px" h="40px">
-              <Text fontSize="24px">{letter(avgGrade)}</Text>
+            <Box bg="#E8E8E8" color="black" borderRadius="4" w="100px" h="40px">
+              <Text fontSize="24px">{letter(avgGrade.toFixed(4))}</Text>
+            </Box>
+          </HStack>
+        </Box>
+        <Box bg="#A29165" pt="8px" mx="45px">
+          <Text fontSize="20" fontWeight="semi bold" py="5px">
+            Powerschool grade:
+          </Text>
+          <HStack spacing="20px">
+            <Box bg="#E8E8E8" color="black" borderRadius="4" w="200px" h="40px">
+              <Text fontSize="24px">{avgGrade.toFixed()}</Text>
+            </Box>
+            <Box bg="#E8E8E8" color="black" borderRadius="4" w="100px" h="40px">
+              <Text fontSize="24px">{letter(avgGrade.toFixed())}</Text>
             </Box>
           </HStack>
         </Box>
