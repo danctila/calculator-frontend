@@ -95,7 +95,7 @@ const Calculator = () => {
               bg="#989898"
               color="#214D7D"
               hasArrow
-              label="Calculated grade before PowerSchool rounds to whole number"
+              label="Enter grade weight in decimal form '0.00'"
               placement="top-start"
               isOpen={weightTip}
             >
