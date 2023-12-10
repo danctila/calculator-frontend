@@ -1,9 +1,23 @@
-import { Box, HStack, Switch, Text, Tooltip, VStack } from "@chakra-ui/react";
+import { useState } from "react";
+import {
+  Box,
+  Button,
+  HStack,
+  Switch,
+  Text,
+  Tooltip,
+  VStack,
+} from "@chakra-ui/react";
 import Calculator from "./Calculator";
 import Gradehelp from "./Gradehelp";
 import Gradeintro from "./Gradeintro";
 import { InfoOutlineIcon } from "@chakra-ui/icons";
+import AdvCalculator from "./AdvCalculator";
 const Home = () => {
+  const [advancedMode, setAdvancedMode] = useState(false);
+  const toggleAdvanced = () => {
+    setAdvancedMode(!advancedMode);
+  };
   return (
     <>
       <Box bg="#E8E8E8" minW="470px">
@@ -23,12 +37,16 @@ const Home = () => {
               <Text fontSize="16px" fontWeight="semibold" color="black">
                 Advanced mode
               </Text>
-              <Switch size="md" colorScheme="green"></Switch>
+              <Switch
+                size="md"
+                colorScheme="green"
+                onChange={toggleAdvanced}
+              ></Switch>
             </HStack>
           </VStack>
         </HStack>
+        {advancedMode ? <AdvCalculator /> : <Calculator />}
 
-        <Calculator />
         <Gradehelp />
       </Box>
     </>

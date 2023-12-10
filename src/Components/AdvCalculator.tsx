@@ -199,7 +199,19 @@ const Calculator = () => {
             X Reset
           </Button>
         </HStack>
-
+        <Box bg="#A29165" pt="8px" mx="45px">
+          <Text fontSize="20" fontWeight="semi bold" py="5px">
+            Average grade:
+          </Text>
+          <HStack spacing="20px">
+            <Box bg="#E8E8E8" color="black" borderRadius="4" w="200px" h="40px">
+              <Text fontSize="24px">{avgGrade.toFixed(4)}</Text>
+            </Box>
+            <Box bg="#E8E8E8" color="black" borderRadius="4" w="100px" h="40px">
+              <Text fontSize="24px">{letter(avgGrade.toFixed(4))}</Text>
+            </Box>
+          </HStack>
+        </Box>
         <Box bg="#A29165" pt="8px" mx="45px">
           <Text fontSize="20" fontWeight="semi bold" py="5px">
             Powerschool grade:
