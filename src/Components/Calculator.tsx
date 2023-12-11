@@ -43,16 +43,22 @@ const Calculator = () => {
   };
 
   const calculation = () => {
-    let finalGrade = 0;
+    let avgSum = 0;
+    let weightSum = 0;
     for (let i = 0; i < formFields.length; i++) {
       let earned = formFields[i].pointsEarned as unknown as number;
       let total = formFields[i].totalPoints as unknown as number;
-      let category = formFields[i].category as unknown as number;
+      let score = ((earned / total) * 100).toFixed(2) as unknown as number;
+      let weight = (formFields[i].category as unknown as number) * 1;
 
-      finalGrade += 100 * (earned / total) * category;
+      avgSum += score * weight;
+      weightSum += weight * 1;
     }
 
-    return finalGrade;
+    let result = avgSum / weightSum;
+
+    if (isNaN(result)) return 0;
+    else return result;
   };
 
   const letter = (number: any) => {
@@ -117,8 +123,8 @@ const Calculator = () => {
                 borderRadius="4"
               >
                 <option value="">--</option>
-                <option value=".20">AFL 20%</option>
-                <option value=".80">AOL 80%</option>
+                <option value="20">AFL 20%</option>
+                <option value="80">AOL 80%</option>
               </Select>
             </HStack>
           );
