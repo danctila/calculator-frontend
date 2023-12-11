@@ -46,16 +46,22 @@ const Calculator = () => {
   };
 
   const calculation = () => {
-    let finalGrade = 0;
+    let avgSum = 0;
+    let weightSum = 0;
     for (let i = 0; i < formFields.length; i++) {
       let earned = formFields[i].pointsEarned as unknown as number;
       let total = formFields[i].totalPoints as unknown as number;
-      let category = formFields[i].category as unknown as number;
+      let score = ((earned / total) * 100).toFixed(2) as unknown as number;
+      let weight = (formFields[i].category as unknown as number) * 1;
 
-      finalGrade += 100 * (earned / total) * category;
+      avgSum += score * weight;
+      weightSum += weight * 1;
     }
 
-    return finalGrade;
+    let result = avgSum / weightSum;
+
+    if (isNaN(result)) return 0;
+    else return result;
   };
 
   const letter = (number: any) => {
@@ -81,21 +87,21 @@ const Calculator = () => {
           <Text fontSize="15" ml="3px">
             Assignment (opt.)
           </Text>
-          <Text fontSize="15" ml="25px">
+          <Text fontSize="15" ml="20px">
             Points earned
           </Text>
-          <Text fontSize="15" ml="5px">
+          <Text fontSize="15" ml="4px">
             Total points
           </Text>
           <HStack>
-            <Text fontSize="15" ml="10px">
-              Weight
+            <Text fontSize="15" ml="3px">
+              Weight %
             </Text>
             <Tooltip
               bg="#989898"
               color="#214D7D"
               hasArrow
-              label="Enter grade weight in decimal form '0.00'"
+              label="Enter grade weight in percent form"
               placement="top-start"
               isOpen={weightTip}
             >
