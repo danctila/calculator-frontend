@@ -37,8 +37,7 @@ const Gradehelp = () => {
               The assignment field is optional and will not effect calculation.
             </ListItem>
             <ListItem fontSize="16px" fontWeight="normal" color="black">
-              The default value for the category field is AFL 20% with no option
-              selected.
+              With no category selected, the returned result will be 0.
             </ListItem>
             <ListItem fontSize="16px" fontWeight="normal" color="black">
               PowerSchool rounds the calculated average grade to the nearest
