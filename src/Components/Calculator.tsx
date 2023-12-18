@@ -38,6 +38,12 @@ const Calculator = () => {
     setFormFields([...formFields, object]);
   };
 
+  const removeFields = () => {
+    let data = [...formFields];
+    if (formFields.length > 1) data.splice(formFields.length - 1, 1);
+    setFormFields(data);
+  };
+
   const refresh = () => {
     window.location.reload();
   };
@@ -129,11 +135,23 @@ const Calculator = () => {
             </HStack>
           );
         })}
-        <Center>
-          <Button onClick={addFields} w="250px" bg="#E8E8E8">
-            Add grade +
-          </Button>
-        </Center>
+        {formFields.length > 1 ? (
+          <HStack justifyContent="right" spacing="20px">
+            <Button onClick={addFields} w="250px" bg="#E8E8E8">
+              Add grade +
+            </Button>
+            <Button onClick={removeFields} w="80px" bg="#E8E8E8">
+              Remove
+            </Button>
+          </HStack>
+        ) : (
+          <Center>
+            <Button onClick={addFields} w="250px" bg="#E8E8E8">
+              Add grade +
+            </Button>
+          </Center>
+        )}
+
         <HStack paddingTop="30px" mx="45px" justifyContent="space-between">
           <Button
             onClick={submit}
