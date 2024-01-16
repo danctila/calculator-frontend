@@ -23,7 +23,7 @@ To Open Local Server:
 ## Usage
 1. Enter grades into the input fields in either the standard mode or advanced mode (note that the assignment name is optional).
 
-2. Chose the weight category for each assignment.
+2. Choose the weight category for each assignment.
 
 3. Press the = Calculate button
 
@@ -31,7 +31,7 @@ To Open Local Server:
 
 **- What was the context for this project?**
 
-A number of students at my high school including myself found it hard to understand the grading system of the school. I decided to set the goal of using modern technologies to solve the problem of this lack of knowledge amongst students and famliliarize myself with the information neccesary to create this application.
+A number of students at my high school including myself found it hard to understand the grading system of the school. I decided to set the goal of using modern technologies to solve the problem of this lack of knowledge amongst students and familiarize myself with the information necessary to create this application.
 
 **- What did I end up building?**
 
@@ -39,5 +39,7 @@ My final product ended up as a fully hosted frontend site. This site is not only
 
 **- What tools did I use?**
 
-My main development tool was React started with Vite. I used Chakra UI for my design work after developing mockups in Figma. Further into the codebase, most of the logic is implimented with TypeScript
+My main development tool was React started with Vite. I used Chakra UI for my design work after developing mockups in Figma. Further into the codebase, most of the logic is implemented with TypeScript
+
+
 
