@@ -1,30 +1,43 @@
-# React + TypeScript + Vite
+ # React Calculator Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+calculator-frontend is a website (https://nhsgrader.com) developed in React for students to calculate their grades with.
+## Project Screenshot
 
-Currently, two official plugins are available:
+The grade calculator website looks like this:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+<img src="https://github.com/danctila/CalculatorFrontEnd/assets/134968796/706b0af1-93d7-4f33-a9e9-273e81a06666" alt="grader" width="500"/>
 
-## Expanding the ESLint configuration
+## Installation
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Close down this repository. You will need node and npm installed globally on your machine.
 
-- Configure the top-level `parserOptions` property like this:
+To Start Server:
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+``npm run dev
+``
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+To Open Local Server:
+
+``https://localhost:xxxx``
+
+## Usage
+1. Enter grades into the input fields in either the standard mode or advanced mode (note that the assignment name is optional).
+
+2. Chose the weight category for each assignment.
+
+3. Press the = Calculate button
+
+## Reflection
+
+**- What was the context for this project?**
+
+A number of students at my high school including myself found it hard to understand the grading system of the school. I decided to set the goal of using modern technologies to solve the problem of this lack of knowledge amongst students and famliliarize myself with the information neccesary to create this application.
+
+**- What did I end up building?**
+
+My final product ended up as a fully hosted frontend site. This site is not only functional and efficient with TypeScript, but it also includes an elegant and fully mobile responsive UI.
+
+**- What tools did I use?**
+
+My main development tool was React started with Vite. I used Chakra UI for my design work after developing mockups in Figma. Further into the codebase, most of the logic is implimented with TypeScript
+
