@@ -29,7 +29,7 @@ const About = () => {
               This entire website was coded from scratch by Dylan Anctil using
               ReactJS as a framework for TypeScript. If you want to know more,
               check out this{" "}
-              <Link color="blue" href="https://dylanslibrary.com">
+              <Link color="blue" href="https://danctil.com">
                 portfolio website{" "}
               </Link>
               for details.
