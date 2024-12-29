@@ -18,9 +18,9 @@ const About = () => {
               About
             </Text>
             <Text fontSize="16px" fontWeight="normal" color="black">
-              Nhsgrader.com was made purely as a tool for others to use. If you
-              like Nhsgrader.com please consider spreading the word to students
-              around the school.
+              Nhsgrader.danctil.com was made purely as a tool for others to use.
+              If you like Nhsgrader.danctil.com please consider spreading the
+              word to students around the school.
             </Text>
             <Text fontSize="16px" fontWeight="semibold" color="black">
               Creator
